@@ -1,7 +1,7 @@
 import React from "react";
 
 const SellBooks = () => {
-  return <div>SellBooks</div>;
+  return <div className="min-h-[90vh]">SellBooks</div>;
 };
 
 export default SellBooks;
