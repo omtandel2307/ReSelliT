@@ -1,8 +1,28 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
+import { app } from "../firebase.config";
+import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { useStateValue } from "../context/StateProvider";
+import { actionType } from "../context/reducer";
+
 export const Nav = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const firebaseAuth = getAuth(app);
+  const provider = new GoogleAuthProvider();
+
+  const [{ user }, dispatch] = useStateValue();
+
+  const login = async () => {
+    const {
+      user: { refreshToken, providerData },
+    } = await signInWithPopup(firebaseAuth, provider);
+    dispatch({
+      type: actionType.SET_USER,
+      user: providerData[0],
+    });
+    console.log(providerData);
+  };
 
   return (
     <div className="bg-gray-900">
@@ -47,12 +67,13 @@ export const Nav = () => {
           <ul className="flex items-center hidden space-x-8 lg:flex">
             <li>
               <a
-                href="/"
+                href="#"
                 className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
                 aria-label="Sign up"
                 title="Sign up"
+                onClick={login}
               >
-                Sign up
+                {user ? user.displayName : "Login"}
               </a>
             </li>
           </ul>
