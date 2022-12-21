@@ -45,7 +45,7 @@ const UserDropDown = () => {
             <div>
               <Link to={"/sellbooks"}>
                 <p
-                  className="px-4 py-2 flex items-center gap-3 cursor-pointer hover: bg-gray-900 transition-all duration-100 ease-in-out text-white"
+                  className="px-4 py-2 flex items-center gap-3 cursor-pointer hover: bg-gray-900 transition-all duration-100 ease-in-out text-white "
                   onClick={() => {
                     setIsMenu(false);
                   }}
