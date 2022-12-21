@@ -21,7 +21,6 @@ export const Nav = () => {
       type: actionType.SET_USER,
       user: providerData[0],
     });
-    console.log(providerData);
   };
 
   return (
