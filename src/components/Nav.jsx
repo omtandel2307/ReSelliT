@@ -5,6 +5,7 @@ import { app } from "../firebase.config";
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { useStateValue } from "../context/StateProvider";
 import { actionType } from "../context/reducer";
+import UserDropDown from "./UserDropDown";
 
 export const Nav = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -77,6 +78,9 @@ export const Nav = () => {
               >
                 {user ? user.displayName : "Login"}
               </a>
+            </li>
+            <li>
+              <UserDropDown />
             </li>
           </ul>
           <div className="lg:hidden">
@@ -181,14 +185,7 @@ export const Nav = () => {
                         </a>
                       </li>
                       <li>
-                        <a
-                          href="/"
-                          aria-label="About us"
-                          title="About us"
-                          className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
-                        >
-                          <Link to="/aboutus">About Us</Link>
-                        </a>
+                        <UserDropDown />
                       </li>
                       <li>
                         <a
