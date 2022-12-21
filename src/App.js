@@ -11,6 +11,7 @@ import { getAllBooks } from "./utils/firebaseFunctions";
 import { useStateValue } from "./context/StateProvider";
 import { actionType } from "./context/reducer";
 import BookPage from "./pages/BookPage";
+import MyBooks from "./pages/MyBooks";
 
 const App = () => {
   const [{ books }, dispatch] = useStateValue();
@@ -26,7 +27,7 @@ const App = () => {
 
   useEffect(() => {
     fetchData();
-  }, [books]);
+  }, []);
 
   return (
     <Router>
@@ -38,6 +39,7 @@ const App = () => {
         <Route path="/buybooks/:bookId" element={<BookPage />} />
         <Route path="/aboutus" element={<AboutUs />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/mybooks" element={<MyBooks />} />
       </Routes>
       <Footer />
     </Router>
