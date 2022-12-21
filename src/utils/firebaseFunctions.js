@@ -18,4 +18,6 @@ export const getAllBooks = async () => {
   const books = await getDocs(
     query(collection(firestore, "books"), orderBy("id", "desc"))
   );
+
+  return books.docs.map((doc) => doc.data());
 };
