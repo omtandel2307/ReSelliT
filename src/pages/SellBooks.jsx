@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { MdCloudUpload, MdDelete } from "react-icons/md";
+import { MdDelete } from "react-icons/md";
 import Loader from "./Loader";
 import {
   deleteObject,
@@ -11,7 +11,6 @@ import { storage } from "../firebase.config";
 import Toaster from "../components/Toaster";
 import { useStateValue } from "../context/StateProvider";
 import { saveItem } from "../utils/firebaseFunctions";
-import { async } from "@firebase/util";
 import { useNavigate } from "react-router-dom";
 
 const SellBooks = () => {
@@ -24,7 +23,6 @@ const SellBooks = () => {
   const [description, setDescription] = useState("");
   const [imageAsset, setImageAsset] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
-  const [fields, setFields] = useState(false);
   const [bookUploaded, setBookUploaded] = useState(false);
   const [imageUploaded, setImageUploaded] = useState(false);
   const [imageURL, setImageURL] = useState("");
@@ -104,7 +102,7 @@ const SellBooks = () => {
         setImageAsset(null);
         setTimeout(() => {
           setBookUploaded(false);
-          history("/buybooks");
+          history("/");
         }, 2000);
       }
     } catch (err) {

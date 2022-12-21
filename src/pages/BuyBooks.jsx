@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import BookCard from "../components/BookCard";
 import { useStateValue } from "../context/StateProvider";
 import Loader from "./Loader";
@@ -6,6 +6,7 @@ import Loader from "./Loader";
 const BuyBooks = () => {
   // const [booksArr, setBooksArr] = useState([]);
   const [{ books }, dipatch] = useStateValue();
+  console.log(books);
 
   return (
     <div className="min-h-[90vh] flex flex-wrap gap-4 justify-center items-center">
