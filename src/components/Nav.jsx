@@ -48,23 +48,25 @@ export const Nav = () => {
               <rect x="14" y="1" width="7" height="6" />
               <rect x="14" y="11" width="7" height="12" />
             </svg>
-            <span className="ml-2 text-xl font-bold tracking-wide text-gray-100 uppercase">
-              <Link to="/">Company</Link>
+            <span className="ml-2 text-xl font-bold tracking-wide text-gray-100 ">
+              <Link to="/">ReSellit</Link>
             </span>
           </a>
           <ul className="flex items-center hidden space-x-8 lg:flex">
             <li className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400">
               <Link to="/buybooks">Buy Books</Link>
             </li>
-            <li className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400">
-              <Link to="/sellbooks">Sell Books</Link>
-            </li>
+            {user && (
+              <li className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400">
+                <Link to="/sellbooks">Sell Books</Link>
+              </li>
+            )}
             <li className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400">
               <Link to="/cart">My Cart</Link>
             </li>
 
             <li className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400">
-              <Link to="/aboutus">About Us</Link>
+              <Link to="/aboutus">About</Link>
             </li>
           </ul>
           <ul className="flex items-center hidden space-x-8 lg:flex">
@@ -171,7 +173,12 @@ export const Nav = () => {
                           title="Our product"
                           className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
                         >
-                          <Link to="/sellbooks">Sell Books</Link>
+                          <Link
+                            to="/sellbooks"
+                            className={user ? "" : "disabled"}
+                          >
+                            Sell Books
+                          </Link>
                         </a>
                       </li>
                       <li>
