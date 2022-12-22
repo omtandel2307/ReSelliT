@@ -22,6 +22,7 @@ const UserDropDown = () => {
   return (
     <div className="relative">
       <motion.img
+        referrerPolicy="no-referrer"
         whileTap={{ scale: 0.6 }}
         src={
           user
