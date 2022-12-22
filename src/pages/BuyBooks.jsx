@@ -6,7 +6,6 @@ import Loader from "./Loader";
 const BuyBooks = () => {
   // const [booksArr, setBooksArr] = useState([]);
   const [{ books }, dipatch] = useStateValue();
-  console.log(books);
 
   return (
     <div className="min-h-[90vh] flex flex-wrap gap-4 justify-center items-center">

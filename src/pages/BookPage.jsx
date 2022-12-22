@@ -8,7 +8,6 @@ const BookPage = () => {
 
   const finBook = books?.filter((book) => book.id === params.bookId);
   const book = finBook[0];
-  console.log(finBook);
 
   return (
     <div className="min-h-[90vh] ">
