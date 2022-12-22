@@ -102,7 +102,7 @@ const SellBooks = () => {
         setImageAsset(null);
         setTimeout(() => {
           setBookUploaded(false);
-          history("/");
+          history("/buybooks");
         }, 2000);
       }
     } catch (err) {
