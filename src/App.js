@@ -12,22 +12,44 @@ import { useStateValue } from "./context/StateProvider";
 import { actionType } from "./context/reducer";
 import BookPage from "./pages/BookPage";
 import MyBooks from "./pages/MyBooks";
+import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
+import { firestore } from "./firebase.config";
 
 const App = () => {
   const [{ books }, dispatch] = useStateValue();
+  console.log("appp", books);
 
-  const fetchData = async () => {
-    await getAllBooks().then((res) => {
-      dispatch({
-        type: actionType.SET_BOOKS,
-        books: res,
-      });
-    });
-  };
+  // const fetchData = async () => {
+  //   await getAllBooks().then((res) => {
+  //     console.log("App", res);
+  //     dispatch({
+  //       type: actionType.SET_BOOKS,
+  //       books: res,
+  //     });
+  //   });
+  // };
 
-  useEffect(() => {
-    fetchData();
-  }, []);
+  // useEffect(() => {
+  //   fetchData();
+  // }, []);
+
+  useEffect(
+    () =>
+      onSnapshot(
+        query(collection(firestore, "books"), orderBy("id", "desc")),
+        (snapshot) => {
+          // console.log(snapshot.docs.map((doc) => doc.data()));
+          dispatch({
+            type: actionType.SET_BOOKS,
+            books: snapshot.docs.map((doc) => ({
+              id: doc.id,
+              ...doc.data(),
+            })),
+          });
+        }
+      ),
+    [firestore]
+  );
 
   return (
     <Router>
