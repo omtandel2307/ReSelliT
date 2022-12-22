@@ -1,5 +1,6 @@
 import {
   collection,
+  deleteDoc,
   doc,
   getDocs,
   orderBy,
@@ -19,4 +20,8 @@ export const getAllBooks = async () => {
     query(collection(firestore, "books"), orderBy("id", "desc"))
   );
   return books.docs.map((doc) => doc.data());
+};
+
+export const deleteBook = async (id) => {
+  await deleteDoc(doc(firestore, "books", id));
 };
