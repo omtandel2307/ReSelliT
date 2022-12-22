@@ -10,10 +10,13 @@ const MyBooks = () => {
   console.log(filteredBooks);
 
   return (
-    <div className="min-h-[100vh] flex flex-wrap gap-4 items-center justify-center">
-      {filteredBooks.length === 0
-        ? "Add Some Books to Sell📚"
-        : filteredBooks.map((book, id) => <MyBookCard key={id} {...book} />)}
+    <div className="flex items-center justify-center flex-col ">
+      <h1 className="text-3xl font-bold mt-2 shadow-sm">Your Added Books📚 </h1>
+      <div className="min-h-[80vh] flex flex-wrap gap-4 items-center justify-center">
+        {filteredBooks.length === 0
+          ? "Add Some Books to Sell📚"
+          : filteredBooks.map((book, id) => <MyBookCard key={id} {...book} />)}
+      </div>
     </div>
   );
 };

@@ -17,10 +17,19 @@ const MyBookCard = ({
   ownerEmail,
   id,
 }) => {
-  const handleDelete = async () => {
-    console.log("Delete", id);
-    const res = await deleteDoc(doc(firestore, "books", `${id}`));
-    console.log("deleted res", res);
+  // const handleDelete = async () => {
+  //   console.log("Delete", id);
+  //   const res = await deleteDoc(doc(firestore, "books", `${id}`));
+  // };
+
+  const handleDelete = () => {
+    try {
+      deleteDoc(doc(firestore, "books", `${id}`))
+        .then((res) => console.log("deleteres", res))
+        .catch((err) => console.log(err));
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
