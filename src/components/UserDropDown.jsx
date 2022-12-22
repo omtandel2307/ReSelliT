@@ -29,7 +29,7 @@ const UserDropDown = () => {
             ? user.photoURL
             : "https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?w=2000"
         }
-        className="w-10 min-w-[40px] h-10 min-h-[40px] shadow-2xl rounded-full object-contain"
+        className="w-10 min-w-[40px] h-10 min-h-[40px] shadow-2xl rounded-full object-contain hover:shadow-white cursor-pointer"
         alt="user"
         onClick={() => {
           setIsMenu(!isMenu);
@@ -43,10 +43,10 @@ const UserDropDown = () => {
           className="w-40 shadow-xl bg-white  rounded-lg flex flex-col absolute top-12 right-0"
         >
           {user && (
-            <div>
+            <div className="hover:shadow-white">
               <Link to={"/sellbooks"}>
                 <p
-                  className="px-4 py-2 flex items-center gap-3 cursor-pointer hover: bg-gray-900 transition-all duration-100 ease-in-out text-white "
+                  className="px-4 py-2 flex items-center gap-3 cursor-pointer hover: bg-gray-900 transition-all duration-100 ease-in-out text-white hover:shadow-white"
                   onClick={() => {
                     setIsMenu(false);
                   }}
@@ -56,7 +56,7 @@ const UserDropDown = () => {
               </Link>
               <Link to={"/mybooks"}>
                 <p
-                  className="px-4 py-2 flex items-center gap-3 cursor-pointer hover: bg-gray-900 transition-all duration-100 ease-in-out text-white"
+                  className="px-4 py-2 flex items-center gap-3 cursor-pointer hover: bg-gray-900 transition-all duration-100 ease-in-out text-white hover:shadow-white"
                   onClick={() => {
                     setIsMenu(false);
                   }}
