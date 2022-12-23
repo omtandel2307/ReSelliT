@@ -12,7 +12,7 @@ export const Nav = () => {
   const firebaseAuth = getAuth(app);
   const provider = new GoogleAuthProvider();
 
-  const [{ user }, dispatch] = useStateValue();
+  const [{ user, cartItems }, dispatch] = useStateValue();
 
   const login = async () => {
     const {
@@ -62,7 +62,7 @@ export const Nav = () => {
               </li>
             )}
             <li className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400">
-              <Link to="/cart">My Cart</Link>
+              <Link to="/cart">My Cart - {`${cartItems.length}`} </Link>
             </li>
 
             <li className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400">
@@ -188,7 +188,9 @@ export const Nav = () => {
                           title="Product pricing"
                           className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
                         >
-                          <Link to="/cart">My Cart</Link>
+                          <Link to="/cart">
+                            My Cart {cartItems ? cartItems.length : 0}
+                          </Link>
                         </a>
                       </li>
                       <li>
