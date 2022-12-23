@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { toast, Toaster } from "react-hot-toast";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import { Link } from "react-router-dom";
@@ -17,6 +17,7 @@ const BookCard = ({
   ownerEmail,
   id,
 }) => {
+  const [addToCart, setAddtoCart] = useState(false);
   const handleCart = (e) => {
     e.preventDefault();
     e.stopPropagation();
@@ -37,6 +38,11 @@ const BookCard = ({
       cartItems: [...cartItems, item],
     });
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
+    toast("Added to Cart", {
+      icon: "🛒",
+      duration: 1000,
+      id: id,
+    });
   };
   const [{ cartItems }, dispatch] = useStateValue();
   return (

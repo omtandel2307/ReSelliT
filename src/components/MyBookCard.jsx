@@ -1,5 +1,6 @@
 import { deleteDoc, doc } from "firebase/firestore";
 import React from "react";
+import { toast, Toaster } from "react-hot-toast";
 import { MdDeleteForever, MdOutlineShoppingCart } from "react-icons/md";
 import { Link, useNavigate } from "react-router-dom";
 import { firestore } from "../firebase.config";
@@ -27,6 +28,10 @@ const MyBookCard = ({
       deleteDoc(doc(firestore, "books", `${id}`))
         .then((res) => console.log("deleteres", res))
         .catch((err) => console.log(err));
+      toast("Book Deleted!", {
+        duration: 1000,
+        icon: "📖",
+      });
     } catch (error) {
       console.log(error);
     }
@@ -34,6 +39,7 @@ const MyBookCard = ({
 
   return (
     <div className="py-6 cursor-pointer min-h-[200px]">
+      <Toaster />
       <div className="flex max-w-md bg-white shadow-[0px_4px_16px_rgba(17,17,26,0.1),_0px_8px_24px_rgba(17,17,26,0.1),_0px_16px_56px_rgba(17,17,26,0.1)] rounded-lg overflow-hidden h-25">
         <div className="w-1/3 bg-cover">
           <img src={imageURL} alt="" className="object-cover h-full w-full" />

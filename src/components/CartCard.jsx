@@ -1,4 +1,5 @@
 import React from "react";
+import { toast, Toaster } from "react-hot-toast";
 import { Link } from "react-router-dom";
 import { actionType } from "../context/reducer";
 import { useStateValue } from "../context/StateProvider";
@@ -26,9 +27,11 @@ const CartCard = ({
       type: actionType.SET_CARTITEMS,
       cartItems: newcart,
     });
+    toast.success("Book Removed From Cart!");
   };
   return (
     <div className="py-6 cursor-pointer min-h-[200px]">
+      <Toaster position="top-center" />
       <Link to={`/buybooks/${id}`}>
         <div className="flex max-w-md bg-white shadow-[0px_4px_16px_rgba(17,17,26,0.1),_0px_8px_24px_rgba(17,17,26,0.1),_0px_16px_56px_rgba(17,17,26,0.1)] rounded-lg overflow-hidden h-25">
           <div className="w-1/3 bg-cover">
