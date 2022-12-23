@@ -7,7 +7,6 @@ const MyBooks = () => {
   const [{ user }, dispatch] = useStateValue();
   const [{ books }, dipatch] = useStateValue();
   const filteredBooks = books.filter((book) => book.uid === user.uid);
-  console.log(filteredBooks);
 
   return (
     <div className="flex items-center justify-center flex-col ">
