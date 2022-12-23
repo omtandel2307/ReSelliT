@@ -2,12 +2,13 @@ import { motion } from "framer-motion";
 import React, { useState } from "react";
 import { MdAdd, MdLibraryBooks, MdLogout } from "react-icons/md";
 import { HiShoppingCart } from "react-icons/hi";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { actionType } from "../context/reducer";
 import { useStateValue } from "../context/StateProvider";
 
 const UserDropDown = () => {
   const [{ user }, dispatch] = useStateValue();
+  const navigate = useNavigate();
 
   const [isMenu, setIsMenu] = useState(false);
   const logout = () => {
@@ -17,6 +18,7 @@ const UserDropDown = () => {
       type: actionType.SET_USER,
       user: null,
     });
+    navigate(0);
   };
 
   return (
