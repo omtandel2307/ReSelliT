@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import React, { useState } from "react";
 import { MdAdd, MdLibraryBooks, MdLogout } from "react-icons/md";
+import { HiShoppingCart } from "react-icons/hi";
 import { Link } from "react-router-dom";
 import { actionType } from "../context/reducer";
 import { useStateValue } from "../context/StateProvider";
@@ -17,7 +18,6 @@ const UserDropDown = () => {
       user: null,
     });
   };
-  console.log("usrrr", user);
 
   return (
     <div className="relative">
@@ -66,12 +66,33 @@ const UserDropDown = () => {
               </Link>
             </div>
           )}
-          <p
-            onClick={logout}
-            className="px-4 py-2 flex items-center gap-3 cursor-pointer hover: bg-gray-900 transition-all duration-100 ease-in-out text-white"
-          >
-            Logout <MdLogout />
-          </p>
+          {user ? (
+            <p
+              onClick={logout}
+              className="px-4 py-2 flex items-center gap-3 cursor-pointer hover: bg-gray-900 transition-all duration-100 ease-in-out text-white"
+            >
+              Logout <MdLogout />
+            </p>
+          ) : (
+            <div>
+              <Link to="/buybooks">
+                <p
+                  onClick={logout}
+                  className="px-4 py-2 flex items-center gap-3 cursor-pointer hover: bg-gray-900 transition-all duration-100 ease-in-out text-white"
+                >
+                  Buy Books <MdLibraryBooks />
+                </p>
+              </Link>
+              <Link to="/cart">
+                <p
+                  onClick={logout}
+                  className="px-4 py-2 flex items-center gap-3 cursor-pointer hover: bg-gray-900 transition-all duration-100 ease-in-out text-white"
+                >
+                  My Cart <HiShoppingCart />
+                </p>
+              </Link>
+            </div>
+          )}
         </motion.div>
       )}
     </div>
