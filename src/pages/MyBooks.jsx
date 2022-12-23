@@ -1,5 +1,4 @@
-import React, { useEffect } from "react";
-import BookCard from "../components/BookCard";
+import React from "react";
 import MyBookCard from "../components/MyBookCard";
 import { useStateValue } from "../context/StateProvider";
 
