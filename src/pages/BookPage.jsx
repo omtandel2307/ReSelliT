@@ -1,16 +1,58 @@
 import React from "react";
+import { toast, Toaster } from "react-hot-toast";
 import { useParams } from "react-router-dom";
+import { actionType } from "../context/reducer";
 import { useStateValue } from "../context/StateProvider";
 
 const BookPage = () => {
   const params = useParams();
-  const [{ books }, dispatch] = useStateValue();
+  const [{ books, cartItems }, dispatch] = useStateValue();
 
   const finBook = books?.filter((book) => book.id === params.bookId);
   const book = finBook[0];
+  const {
+    bookName,
+    ownerName,
+    price,
+    phoneNumber,
+    description,
+    imageURL,
+    uid,
+    userName,
+    ownerEmail,
+    id,
+  } = book;
+
+  const handleCart = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    const item = {
+      bookName,
+      ownerName,
+      price,
+      phoneNumber,
+      description,
+      imageURL,
+      uid,
+      userName,
+      ownerEmail,
+      id,
+    };
+    dispatch({
+      type: actionType.SET_CARTITEMS,
+      cartItems: [...cartItems, item],
+    });
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+    toast("Added to Cart", {
+      icon: "🛒",
+      duration: 1000,
+      id: id,
+    });
+  };
 
   return (
     <div className="min-h-[90vh] ">
+      <Toaster position="top-center" />
       <section className="text-gray-700 body-font overflow-hidden bg-white">
         <div className="container px-5 py-24 mx-auto">
           <div className="lg:w-4/5 mx-auto flex flex-wrap">
@@ -144,7 +186,10 @@ const BookPage = () => {
                 <span className="title-font font-medium text-2xl mt-10 text-gray-900">
                   ₹{finBook[0]?.price}
                 </span>
-                <button className="flex ml-auto mt-10 text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded">
+                <button
+                  onClick={handleCart}
+                  className="flex ml-auto mt-10 text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded"
+                >
                   Add to Cart
                 </button>
                 <button className="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4 mt-10">
