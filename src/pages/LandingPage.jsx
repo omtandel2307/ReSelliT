@@ -25,9 +25,9 @@ const LandingPage = () => {
             </span>
           </h2>
           <p className="pr-5 mb-5 text-base text-gray-700 md:text-lg">
-            Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-            accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-            quae. explicabo.
+            Forget the hassle of searching for books among peers.Simply list
+            books to be sold and get the best price for them.Easily find the
+            books you need.
           </p>
           <div className="flex items-center">
             <Link to="/buybooks">
