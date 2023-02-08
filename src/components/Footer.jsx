@@ -92,7 +92,7 @@ const Footer = () => {
             </div>
             <div>
               <p className="font-semibold tracking-wide text-teal-accent-400">
-                Cherry
+                Category
               </p>
               <ul className="mt-2 space-y-2">
                 <li>
@@ -139,7 +139,7 @@ const Footer = () => {
             </div>
             <div>
               <p className="font-semibold tracking-wide text-teal-accent-400">
-                Apples
+                Category
               </p>
               <ul className="mt-2 space-y-2">
                 <li>
@@ -186,7 +186,7 @@ const Footer = () => {
             </div>
             <div>
               <p className="font-semibold tracking-wide text-teal-accent-400">
-                Business
+                Category
               </p>
               <ul className="mt-2 space-y-2">
                 <li>
