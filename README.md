@@ -85,6 +85,6 @@ Contributions are what make the open source community such an amazing place to b
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-## License
+## License Details
 
 Distributed under the MIT License. See [LICENSE](https://github.com/MeetMulik/ReSelliT/blob/main/LICENSE.md) for more information.
