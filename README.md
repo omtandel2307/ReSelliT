@@ -37,7 +37,7 @@
 ## About The Project
 
 ![Resellit](https://user-images.githubusercontent.com/89148021/209429781-8e57e6c7-d60c-4e70-a733-f5721b2f0f64.png)
-### ReSelliT is a book reselling platform which enables efficient book exchange between students.Users can add books to sell.
+### ReSelliT is a book reselling platform which enables efficient book exchange between students.Users can add books to sell. Buyers can buy the books.
 
 ## Getting Started
 
