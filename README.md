@@ -87,4 +87,4 @@ Contributions are what make the open source community such an amazing place to b
 
 ## License Details
 
-Distributed under the MIT License. See [LICENSE](https://github.com/MeetMulik/ReSelliT/blob/main/LICENSE.md) for more information.
+Distributed under the MIT License. See [LICENSE](https://github.com/MeetMulik/ReSelliT/blob/main/LICENSE.md) for more information
